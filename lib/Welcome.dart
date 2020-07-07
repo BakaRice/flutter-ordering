@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'Staff.dart';
 import 'login.dart';
 import 'models/user.dart';
-import 'order.dart';
 
 class WelcomePage extends StatelessWidget {
   static const routeName = '/welcome';
@@ -40,6 +39,48 @@ class WelcomePage extends StatelessWidget {
           ],
         );
       }),
+    );
+  }
+}
+
+class IndexCard extends StatelessWidget {
+  final String title;
+  final String description;
+
+  IndexCard(this.title, this.description);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.fromLTRB(12, 12, 12, 0),
+      child: Card(
+          color: Colors.amber,
+          elevation: 10,
+          child: Container(
+            padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      title,
+                      style: TextStyle(fontSize: 30),
+                    ),
+                    Text(title),
+                    Text(title)
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Icon(Icons.border_color),
+                    Text(description)
+                  ],
+                )
+              ],
+            ),
+          )),
     );
   }
 }

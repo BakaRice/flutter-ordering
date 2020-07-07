@@ -10,19 +10,19 @@ class TableStatusList with ChangeNotifier {
 
   int size() => _tableStatusMap.length;
 
+  ///如果当前台已开返回true，如果没开则返回false
   bool isopen(int index) {
-    if (_tableStatusMap != null && _tableStatusMap[index] != null)
-      return _tableStatusMap[index].isopen;
-    else
-      return false;
+    return _tableStatusMap.containsKey(index);
   }
 
   addtable(TableStatus tableStatus) {
     _tableStatusMap[tableStatus.id] = tableStatus;
+    notifyListeners();
   }
 
   deletetable(int index) {
     _tableStatusMap.remove(index);
+    notifyListeners();
   }
 }
 

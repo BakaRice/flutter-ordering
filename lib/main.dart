@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fooddeliveryapp/login.dart';
-import 'package:fooddeliveryapp/order.dart';
 import 'package:fooddeliveryapp/table.dart';
 import 'package:provider/provider.dart';
 
@@ -8,6 +7,7 @@ import 'Staff.dart';
 import 'Welcome.dart';
 import 'models/table.dart';
 import 'models/user.dart';
+import 'order/order.dart';
 
 void main() => runApp(MyApp());
 
