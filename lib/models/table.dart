@@ -21,8 +21,17 @@ class TableStatusList with ChangeNotifier {
   }
 
   deletetable(int index) {
+    print("[删除桌号]" + index.toString());
     _tableStatusMap.remove(index);
     notifyListeners();
+  }
+
+  changetable(int before, TableStatus tableStatus) {
+    if (!isopen(tableStatus.id)) {
+      print("[更换桌号]" + before.toString());
+      deletetable(before);
+      addtable(tableStatus);
+    }
   }
 }
 
@@ -33,8 +42,6 @@ class TableStatus {
   int id;
 
   bool isopen = false;
-
-  double amount = 0;
 }
 
 // class OrderDetails {}

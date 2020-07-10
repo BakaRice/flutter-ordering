@@ -3,7 +3,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
 import 'Welcome.dart';
-import 'models/user.dart';
+import '../models/user.dart';
 
 class LoginPage extends StatefulWidget {
   static const routeName = "/";
@@ -87,8 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                 ///图片
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: NetworkImage(
-                     'https://picsum.photos/id/1/150'),
+                  image: NetworkImage('https://picsum.photos/id/1/150'),
                 ),
               ),
             ),
@@ -267,4 +266,3 @@ class _LoginPageState extends State<LoginPage> {
         _pwdEditController.text == '1001';
   }
 }
-

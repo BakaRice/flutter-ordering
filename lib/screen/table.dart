@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fooddeliveryapp/order/order.dart';
+import 'package:fooddeliveryapp/models/tableDetail.dart';
+import 'package:fooddeliveryapp/screen/order/order_home_screen.dart';
 import 'package:provider/provider.dart';
 
-import 'models/table.dart';
+import '../models/table.dart';
 
 class TablePage extends StatefulWidget {
   static const String routeName = '/table';
@@ -73,6 +74,8 @@ class _TableState extends State<TablePage> {
       int count, TableStatusList tableStatusList, BuildContext context) {
     List<Widget> containers = [];
     final statusList = Provider.of<TableStatusList>(context);
+    final myTableDetail = Provider.of<TableDetail>(context);
+
     for (var i = 0; i < count; i++) {
       // var image = Image.network('https://picsum.photos/id/$i/150');
       // containers.add(image);
@@ -81,13 +84,14 @@ class _TableState extends State<TablePage> {
         onTap: () {
           if (tableStatusList.isopen(i)) {
             print("点击该台已开台，台号为=> " + "$i");
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => OrderPage(index: i)));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => HomeSrcreen(index: i)));
           } else {
             print("点击该台号为=> " + "$i");
             statusList.addtable(TableStatus(i));
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => OrderPage(index: i)));
+            myTableDetail.setTableId(i);
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => HomeSrcreen(index: i)));
           }
         },
       ));

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fooddeliveryapp/table.dart';
+import 'package:fooddeliveryapp/screen/table.dart';
 import 'package:provider/provider.dart';
 
 import 'Staff.dart';
 import 'login.dart';
-import 'models/user.dart';
+import '../models/user.dart';
 
 class WelcomePage extends StatelessWidget {
   static const routeName = '/welcome';
